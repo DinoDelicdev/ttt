@@ -10,7 +10,6 @@ class AI_Player:
     return list(self.board.get_available_fields().keys())
   
   def __make_corner_move(self):
-    print(self.board.get_available_corners())
     return self.board.get_available_corners()
   
   def __make_center_move(self):
@@ -35,9 +34,7 @@ class AI_Player:
   
   def make_move(self):
     if self.board.get_num_of_moves() < 3:
-      print("LESSER")
-      return self.__make_lesser_move()
-      
+      return self.__make_lesser_move() 
     else:
       return self.__make_major_move()
       
