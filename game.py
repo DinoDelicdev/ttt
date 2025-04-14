@@ -24,19 +24,25 @@ class Game:
                     user_input = input(f"Player {self.current_player}, enter your move: ")
                     if PromptValidator.is_valid_input(user_input):
                         move = int(user_input)
+                        print("\n")
+                        print(f"Player X took field {move}")
+                        print("\n")
                         break
                     else:
                         print("Invalid input. Please enter a number between 1 and 9.")
             else:
                 move = self.ai.make_move()
+                print("\n")
+                print(f"Player O took field {move}")
+                print("\n")
                 
             self.board.add_player_move(move, self.current_player)
             if self.board.get_num_of_moves() >= 5:
-                print("Now I got started")
+                # print("Now I got started")
                 winner = self.winner_checker.check_winner()
                 if winner:
                     self.board.display()
-                    print(f"Player {winner} wins!")
+                    print(f"Player --- {winner} --- wins!")
                     break
                 if self.board.is_full():
                     self.board.display()

@@ -1,3 +1,4 @@
+
 class Board():
   def __init__(self):
     self.__num_of_moves = 0
@@ -5,7 +6,8 @@ class Board():
     self.index_map = {cell: (i, j) for i, row in enumerate(self.fields) for j, cell in enumerate(row)}
 
   def display(self):
-    
+    if (self.__num_of_moves == 0):
+       print("___________________________\n\n")
     for i, row in enumerate(self.fields):
         for ii, cell in enumerate(row):
             if ii == len(row) - 1: 
@@ -16,6 +18,9 @@ class Board():
           print("\n----------")
         else:
            print("\n")
+    if (self.__num_of_moves == 0):
+       print("___________________________\n\n")
+      
 
   
   def add_player_move(self, num, char):
